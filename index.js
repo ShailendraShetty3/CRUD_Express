@@ -1,49 +1,126 @@
-const express = require('express')
-const mongoose = require('mongoose')
-const Product = require("./models/product.model.js")
-const productRoute = require("./routes/product.route.js")
-const app = express()
+// const express = require('express')
+// const mongoose = require('mongoose')
+// const Product = require("./models/product.model.js")
+// const productRoute = require("./routes/product.route.js")
+// const reviewRoute = require("./routes/reviews.route.js")
+// const app = express()
 
 
+// app.use(express.json());
+// //for taking input from form type in postman
+// app.use(express.urlencoded({ extended: false }));
+
+
+// //routes
+// app.use("/api/products", productRoute);
+
+// app.use("/api/reviews", reviewRoute);
+
+
+// app.listen(3000, () => {
+//     console.log("server is running on port no 3000")
+// })
+
+
+// app.get("/", (req, res) => {
+//     res.send("hello from node API server updated");
+// })
+
+
+
+
+
+// // mongoose.connect('mongodb+srv://admin:admin@backenddb.pdxpp.mongodb.net/Node-API?retryWrites=true&w=majority&appName=BackendDB')
+// //     .then(() => {
+// //         console.log('DB Connected!');
+// //     })
+// //     .catch (() => {
+// //         console.log("DB connection failed")
+// //     })
+
+
+
+// mongoose.connect('mongodb://127.0.0.1:27017/product_crud', {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true
+// })
+//     .then(() => {
+//         console.log('Connected to local MongoDB!');
+//     })
+//     .catch((err) => {
+//         console.error('Error connecting to the database', err);
+//     });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const express = require('express');
+const mongoose = require('mongoose');
+const productRoute = require("./routes/product.route.js");
+const reviewRoute = require("./routes/reviews.route.js");
+const userRoute = require("./routes/user.route.js");
+const setupSwaggerDocs = require('./swagger.js'); // Import the Swagger setup
+
+const app = express();
+
+// Middleware
 app.use(express.json());
-//for taking input from form type in postman
 app.use(express.urlencoded({ extended: false }));
 
+// Swagger setup
+setupSwaggerDocs(app); // Initialize Swagger documentation
 
-//routes
+// Routes
 app.use("/api/products", productRoute);
+app.use("/api/reviews", reviewRoute);
+app.use("/api/user", userRoute);
 
-
-app.listen(3000, () => {
-    console.log("server is running on port no 3000")
-})
-
-
+// Root endpoint
 app.get("/", (req, res) => {
-    res.send("hello from node API server updated");
-})
+    res.send("Hello from Node API server updated");
+});
 
-
-
-
-
-// mongoose.connect('mongodb+srv://admin:admin@backenddb.pdxpp.mongodb.net/Node-API?retryWrites=true&w=majority&appName=BackendDB')
-//     .then(() => {
-//         console.log('DB Connected!');
-//     })
-//     .catch (() => {
-//         console.log("DB connection failed")
-//     })
-
-
-
+// MongoDB connection
 mongoose.connect('mongodb://127.0.0.1:27017/product_crud', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
-    .then(() => {
-        console.log('Connected to local MongoDB!');
-    })
-    .catch((err) => {
-        console.error('Error connecting to the database', err);
-    });
+.then(() => {
+    console.log('Connected to local MongoDB!');
+})
+.catch((err) => {
+    console.error('Error connecting to the database', err);
+});
+
+// Start server
+app.listen(3000, () => {
+    console.log("Server is running on port no 3000");
+});
+

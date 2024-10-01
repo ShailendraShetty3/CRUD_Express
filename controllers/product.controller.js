@@ -1,5 +1,11 @@
 const Product = require("../models/product.model.js");
 
+const Review = require("../models/review.model.js");
+
+
+
+
+
 const getProducts = async (req, res) => {
     try {
         const products = await Product.find({});
@@ -66,11 +72,56 @@ const deleteProduct = async (req, res) => {
 };
 
 
+
+////reviews
+const getReviews = async (req, res) => {
+    try {
+        const reviews = await Review.find({});
+        res.status(200).json(reviews);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+    
+}
+
+
+
+const getReview = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const review = await Review.findById(id);
+        res.status(200).json(review);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+    
+}
+
+
+const postReview = async (req, res) => {
+    try {
+        const review = await Review.create(req.body)
+        res.status(200).json(review)
+    } catch(error) {
+        res.status(500).json({message: error.message})
+    }
+    
+}
+
+
+
+
+
 module.exports = {
     getProducts,
     getProduct,
     postProduct,
     updateProduct,
-    deleteProduct
+    deleteProduct,
+
+    ////
+    getReviews,
+    getReview,
+    postReview,
 }
 
