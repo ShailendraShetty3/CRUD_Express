@@ -19,7 +19,7 @@ const {
 
 /**
  * @swagger
- * /api/socials:
+ * /api/social:
  *   get:
  *     summary: Retrieve a list of social profiles
  *     tags: [Socials]
@@ -37,7 +37,7 @@ router.get("/", getSocials);
 
 /**
  * @swagger
- * /api/socials/{id}:
+ * /api/social/{id}:
  *   get:
  *     summary: Retrieve a single social profile by ID
  *     tags: [Socials]
@@ -62,7 +62,7 @@ router.get("/:id", getSocial);
 
 /**
  * @swagger
- * /api/socials:
+ * /api/social:
  *   post:
  *     summary: Create a new social profile
  *     tags: [Socials]
@@ -80,7 +80,7 @@ router.post("/", postSocial);
 
 /**
  * @swagger
- * /api/socials/{id}:
+ * /api/social/{id}:
  *   put:
  *     summary: Update a social profile by ID
  *     tags: [Socials]
@@ -107,7 +107,7 @@ router.put("/:id", updateSocial);
 
 /**
  * @swagger
- * /api/socials/{id}:
+ * /api/social/{id}:
  *   patch:
  *     summary: Partially update a social profile by ID
  *     tags: [Socials]
@@ -134,7 +134,7 @@ router.patch("/:id", patchSocial);
 
 /**
  * @swagger
- * /api/socials/{id}:
+ * /api/social/{id}:
  *   delete:
  *     summary: Delete a social profile by ID
  *     tags: [Socials]

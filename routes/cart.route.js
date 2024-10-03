@@ -13,82 +13,82 @@ const {
 /**
  * @swagger
  * tags:
- *   name: Socials
- *   description: API for managing social profiles
+ *   name: Carts
+ *   description: API for managing carts
  */
 
 /**
  * @swagger
- * /api/socials:
+ * /api/cart:
  *   get:
- *     summary: Retrieve a list of social profiles
- *     tags: [Socials]
+ *     summary: Retrieve a list of carts
+ *     tags: [Carts]
  *     responses:
  *       200:
- *         description: A list of social profiles
+ *         description: A list of carts
  *         content:
  *           application/json:
  *             schema:
  *               type: array
  *               items:
- *                 $ref: '#/components/schemas/Social'
+ *                 $ref: '#/components/schemas/Cart'
  */
 router.get("/", getCarts);
 
 /**
  * @swagger
- * /api/socials/{id}:
+ * /api/cart/{id}:
  *   get:
- *     summary: Retrieve a single social profile by ID
- *     tags: [Socials]
+ *     summary: Retrieve a single cart by ID
+ *     tags: [Carts]
  *     parameters:
  *       - name: id
  *         in: path
  *         required: true
- *         description: The ID of the social profile
+ *         description: The ID of the cart
  *         schema:
  *           type: string
  *     responses:
  *       200:
- *         description: A single social profile
+ *         description: A single cart
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Social'
+ *               $ref: '#/components/schemas/Cart'
  *       404:
- *         description: Social profile not found
+ *         description: Cart not found
  */
 router.get("/:id", getCart);
 
 /**
  * @swagger
- * /api/socials:
+ * /api/cart:
  *   post:
- *     summary: Create a new social profile
- *     tags: [Socials]
+ *     summary: Create a new cart
+ *     tags: [Carts]
  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/Social'
+ *             $ref: '#/components/schemas/Cart'
  *     responses:
  *       201:
- *         description: Social profile created successfully
+ *         description: Cart created successfully
  */
 router.post("/", postCart);
 
 /**
  * @swagger
- * /api/socials/{id}:
+ * /api/cart/{id}:
  *   put:
- *     summary: Update a social profile by ID
- *     tags: [Socials]
+ *     summary: Update a cart by ID
+ *     tags: [Carts]
  *     parameters:
  *       - name: id
  *         in: path
  *         required: true
- *         description: The ID of the social profile
+ *         description: The ID of the cart
  *         schema:
  *           type: string
  *     requestBody:
@@ -96,26 +96,26 @@ router.post("/", postCart);
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/Social'
+ *             $ref: '#/components/schemas/Cart'
  *     responses:
  *       200:
- *         description: Social profile updated successfully
+ *         description: Cart updated successfully
  *       404:
- *         description: Social profile not found
+ *         description: Cart not found
  */
 router.put("/:id", updateCart);
 
 /**
  * @swagger
- * /api/socials/{id}:
+ * /api/cart/{id}:
  *   patch:
- *     summary: Partially update a social profile by ID
- *     tags: [Socials]
+ *     summary: Partially update a cart by ID
+ *     tags: [Carts]
  *     parameters:
  *       - name: id
  *         in: path
  *         required: true
- *         description: The ID of the social profile
+ *         description: The ID of the cart
  *         schema:
  *           type: string
  *     requestBody:
@@ -123,33 +123,33 @@ router.put("/:id", updateCart);
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/Social'
+ *             $ref: '#/components/schemas/Cart'
  *     responses:
  *       200:
- *         description: Social profile updated successfully
+ *         description: Cart updated successfully
  *       404:
- *         description: Social profile not found
+ *         description: Cart not found
  */
 router.patch("/:id", patchCart);
 
 /**
  * @swagger
- * /api/socials/{id}:
+ * /api/cart/{id}:
  *   delete:
- *     summary: Delete a social profile by ID
- *     tags: [Socials]
+ *     summary: Delete a cart by ID
+ *     tags: [Carts]
  *     parameters:
  *       - name: id
  *         in: path
  *         required: true
- *         description: The ID of the social profile
+ *         description: The ID of the cart
  *         schema:
  *           type: string
  *     responses:
  *       204:
- *         description: Social profile deleted successfully
+ *         description: Cart deleted successfully
  *       404:
- *         description: Social profile not found
+ *         description: Cart not found
  */
 router.delete("/:id", deleteCart);
 
