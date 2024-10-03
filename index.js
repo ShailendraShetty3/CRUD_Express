@@ -86,6 +86,9 @@ const mongoose = require('mongoose');
 const productRoute = require("./routes/product.route.js");
 const reviewRoute = require("./routes/reviews.route.js");
 const userRoute = require("./routes/user.route.js");
+const socialRoute = require("./routes/social_profile.route.js");
+const cartRoute = require("./routes/cart.route.js");
+
 const setupSwaggerDocs = require('./swagger.js'); // Import the Swagger setup
 
 const app = express();
@@ -101,6 +104,8 @@ setupSwaggerDocs(app); // Initialize Swagger documentation
 app.use("/api/products", productRoute);
 app.use("/api/reviews", reviewRoute);
 app.use("/api/user", userRoute);
+app.use("/api/social", socialRoute);
+app.use("/api/cart", cartRoute);
 
 // Root endpoint
 app.get("/", (req, res) => {
