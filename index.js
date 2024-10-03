@@ -88,6 +88,7 @@ const reviewRoute = require("./routes/reviews.route.js");
 const userRoute = require("./routes/user.route.js");
 const socialRoute = require("./routes/social_profile.route.js");
 const cartRoute = require("./routes/cart.route.js");
+const orderRoute = require("./routes/order.route.js");
 
 const setupSwaggerDocs = require('./swagger.js'); // Import the Swagger setup
 
@@ -106,6 +107,7 @@ app.use("/api/reviews", reviewRoute);
 app.use("/api/user", userRoute);
 app.use("/api/social", socialRoute);
 app.use("/api/cart", cartRoute);
+app.use("/api/order", orderRoute);
 
 // Root endpoint
 app.get("/", (req, res) => {
