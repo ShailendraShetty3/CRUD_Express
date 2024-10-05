@@ -92,8 +92,14 @@ const orderRoute = require("./routes/order.route.js");
 const credentialRoute = require("./routes/credential.route.js");
 const itemRoute = require("./routes/item.route.js");
 const orderLineRoute = require("./routes/order_lines.route.js");
+const categoryRoute = require("./routes/category.route.js");
+
+const authRoutes = require("./routes/auth.routes.js");
+
 
 const setupSwaggerDocs = require('./swagger.js'); // Import the Swagger setup
+
+require('dotenv').config();
 
 const app = express();
 
@@ -114,6 +120,10 @@ app.use("/api/order", orderRoute);orderLineRoute
 app.use("/api/credential", credentialRoute);
 app.use("/api/item", itemRoute);
 app.use("/api/order_line", orderLineRoute);
+app.use("/api/category", categoryRoute);
+
+app.use("/api/auth", authRoutes);
+
 
 // Root endpoint
 app.get("/", (req, res) => {
